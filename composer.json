@@ -8,11 +8,31 @@
         "framework"
     ],
     "license": "MIT",
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
     "require": {
         "php": "^8.2",
         "blade-ui-kit/blade-icons": "^1.8",
+        "filament/filament": "^4.2",
+        "internachi/modular": "^2.3",
         "laravel/framework": "^12.39",
         "laravel/tinker": "^2.10.1",
+        "modules/core": "*",
+        "modules/crm": "*",
+        "modules/invoices": "*",
+        "modules/payments": "*",
+        "modules/products": "*",
+        "modules/projects": "*",
+        "modules/quotes": "*",
         "owenvoke/blade-fontawesome": "^2.9.1"
     },
     "require-dev": {
@@ -25,7 +45,8 @@
         "mockery/mockery": "^1.6.12",
         "nunomaduro/collision": "^8.8.3",
         "phpunit/phpunit": "^11.5.44",
-        "rector/rector": "^2.2"
+        "rector/rector": "^2.2",
+        "roave/security-advisories": "dev-latest"
     },
     "autoload": {
         "psr-4": {
@@ -69,15 +90,13 @@
             "dont-discover": []
         }
     },
-    "config": {
-        "optimize-autoloader": true,
-        "preferred-install": "dist",
-        "sort-packages": true,
-        "allow-plugins": {
-            "pestphp/pest-plugin": true,
-            "php-http/discovery": true
+    "repositories": [
+        {
+            "type": "path",
+            "url": "Modules/*",
+            "options": {
+                "symlink": true
+            }
         }
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true
+    ]
 }
