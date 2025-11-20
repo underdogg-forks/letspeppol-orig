@@ -18,8 +18,8 @@ class ConfirmationController extends Controller
 
     public function store(Request $request): RedirectResponse
     {
-        if (! Auth::guard('web')->validate([
-            'email' => $request->user()->email,
+        if ( ! Auth::guard('web')->validate([
+            'email'    => $request->user()->email,
             'password' => $request->password,
         ])) {
             throw ValidationException::withMessages([

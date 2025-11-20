@@ -20,4 +20,4 @@ Route::middleware(['auth'])->group(function () {
     Route::get('settings/appearance', [Settings\AppearanceController::class, 'edit'])->name('settings.appearance.edit');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

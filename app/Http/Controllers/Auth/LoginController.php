@@ -22,13 +22,13 @@ class LoginController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'email' => ['required', 'string', 'email'],
+            'email'    => ['required', 'string', 'email'],
             'password' => ['required', 'string'],
         ]);
 
         $this->ensureIsNotRateLimited($request);
 
-        if (! Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
+        if ( ! Auth::attempt($request->only('email', 'password'), $request->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey($request));
 
             throw ValidationException::withMessages([
@@ -54,9 +54,14 @@ class LoginController extends Controller
         return redirect('/');
     }
 
+    public function throttleKey(Request $request): string
+    {
+        return Str::transliterate(Str::lower($request->string('email')) . '|' . $request->ip());
+    }
+
     protected function ensureIsNotRateLimited(Request $request): void
     {
-        if (! RateLimiter::tooManyAttempts($this->throttleKey($request), 5)) {
+        if ( ! RateLimiter::tooManyAttempts($this->throttleKey($request), 5)) {
             return;
         }
 
@@ -70,10 +75,5 @@ class LoginController extends Controller
                 'minutes' => ceil($seconds / 60),
             ]),
         ]);
-    }
-
-    public function throttleKey(Request $request): string
-    {
-        return Str::transliterate(Str::lower($request->string('email')).'|'.$request->ip());
     }
 }

@@ -1,9 +1,7 @@
 <?php
 
 return [
-
     'brands' => [
-
         'prefix' => 'fab',
 
         'fallback' => '',
@@ -14,11 +12,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'regular' => [
-
         'prefix' => 'far',
 
         'fallback' => '',
@@ -29,11 +25,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'solid' => [
-
         'prefix' => 'fas',
 
         'fallback' => '',
@@ -44,7 +38,6 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     /*
@@ -60,7 +53,6 @@ return [
     */
 
     'duotone' => [
-
         'prefix' => 'fad',
 
         'fallback' => '',
@@ -71,11 +63,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'light' => [
-
         'prefix' => 'fal',
 
         'fallback' => '',
@@ -86,11 +76,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'thin' => [
-
         'prefix' => 'fat',
 
         'fallback' => '',
@@ -101,11 +89,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'sharp-light' => [
-
         'prefix' => 'fal:sharp',
 
         'fallback' => '',
@@ -116,11 +102,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'sharp-regular' => [
-
         'prefix' => 'far:sharp',
 
         'fallback' => '',
@@ -131,11 +115,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'sharp-solid' => [
-
         'prefix' => 'fas:sharp',
 
         'fallback' => '',
@@ -146,11 +128,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'sharp-duotone-solid' => [
-
         'prefix' => 'fad:sharp',
 
         'fallback' => '',
@@ -161,11 +141,9 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     'sharp-thin' => [
-
         'prefix' => 'fat:sharp',
 
         'fallback' => '',
@@ -176,7 +154,6 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
 
     /*
@@ -192,7 +169,6 @@ return [
     */
 
     'custom' => [
-
         'prefix' => 'fak',
 
         'fallback' => '',
@@ -203,7 +179,5 @@ return [
             // 'width' => 50,
             // 'height' => 50,
         ],
-
     ],
-
 ];
