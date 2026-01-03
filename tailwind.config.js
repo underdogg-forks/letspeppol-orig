@@ -43,8 +43,11 @@ module.exports = {
         'fi-topbar',
         'fi-header-bar',
         'fi-user-menu',
-        'fi-user-menu-panel'
-        // ...add more if needed...
+        'fi-user-menu-panel',
+        'fi-page-title',
+        // Patterns for nested/variant classes:
+        { pattern: /fi-main-text/ }, // .fi-main-text, .fi-main-text ul li, etc.
+        { pattern: /fi-card/ }      // .fi-card, .fi-card .fi-header, etc.
     ],
     theme: {
         extend: {}

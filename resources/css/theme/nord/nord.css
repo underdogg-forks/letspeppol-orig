@@ -256,11 +256,17 @@
 }
 
 .fi-table-header {
-    background: var(--color-snowstorm-400);
-    color: var(--color-polarnight-900);
+    background: var(--color-primary-200);
+    color: var(--color-primary-900);
     font-weight: 700;
     padding: 0.75rem 1rem;
-    border-bottom: 2px solid var(--color-polarnight-200);
+    border-bottom: 2px solid var(--color-primary-400);
+}
+
+.dark .fi-table-header {
+    background: var(--color-primary-900);
+    color: var(--color-snowstorm-400);
+    border-bottom: 2px solid var(--color-primary-700);
 }
 
 .fi-table-cell {
@@ -299,44 +305,62 @@
     color: var(--color-snowstorm-400);
 }
 
+/* --- Card Headings --- */
+.fi-card .fi-header {
+    color: var(--color-primary-700);
+}
+
+.dark .fi-card .fi-header {
+    color: var(--color-snowstorm-400);
+}
+
 /* --- List Item Contrast --- */
 .fi-main-text ul li {
-    color: var(--color-polarnight-600);
+    color: var(--color-primary-800);
 }
 
 .dark .fi-main-text ul li {
     color: var(--color-snowstorm-500);
 }
 
-/* --- Filament Sidebar, Topbar, User Menu --- */
+/* --- General Text Contrast --- */
+.fi-main-text, .fi-main-text p, .fi-main-text label, .fi-main-text span, .fi-main-text select, .fi-main-text input {
+    color: var(--color-primary-900);
+}
+
+.dark .fi-main-text, .dark .fi-main-text p, .dark .fi-main-text label, .dark .fi-main-text span, .dark .fi-main-text select, .dark .fi-main-text input {
+    color: var(--color-snowstorm-500);
+}
+
+/* --- Form Labels and Inputs --- */
+.fi-input, .fi-main-text label, .fi-main-text select, .fi-main-text input[type="text"], .fi-main-text textarea {
+    color: var(--color-primary-900);
+}
+
+.dark .fi-input, .dark .fi-main-text label, .dark .fi-main-text select, .dark .fi-main-text input[type="text"], .dark .fi-main-text textarea {
+    color: var(--color-snowstorm-500);
+}
+
+/* --- Sidebar: More Contrast --- */
 .fi-sidebar, .fi-sidebar nav, .fi-sidebar-panel {
-    background: var(--color-snowstorm-600) !important;
-    color: var(--color-polarnight-900) !important;
+    background: var(--color-primary-800) !important;
+    color: var(--color-snowstorm-600) !important;
 }
 
 .dark .fi-sidebar, .dark .fi-sidebar nav, .dark .fi-sidebar-panel {
-    background: var(--color-polarnight-900) !important;
-    color: var(--color-snowstorm-400) !important;
+    background: var(--color-polarnight-950) !important;
+    color: var(--color-snowstorm-500) !important;
 }
 
-.fi-topbar, .fi-header nav, .fi-header-bar {
-    background: var(--color-snowstorm-500) !important;
-    color: var(--color-polarnight-900) !important;
+/* --- Main Page Title (Debug - TailwindCSS Test) --- */
+.fi-page-title, .fi-header-bar, .fi-header {
+    background: none !important;
+    color: var(--color-primary-900);
 }
 
-.dark .fi-topbar, .dark .fi-header nav, .dark .fi-header-bar {
-    background: var(--color-polarnight-800) !important;
-    color: var(--color-snowstorm-400) !important;
-}
-
-.fi-user-menu, .fi-user-menu-panel {
-    background: var(--color-snowstorm-600) !important;
-    color: var(--color-polarnight-900) !important;
-}
-
-.dark .fi-user-menu, .dark .fi-user-menu-panel {
-    background: var(--color-polarnight-800) !important;
-    color: var(--color-snowstorm-400) !important;
+.dark .fi-page-title, .dark .fi-header-bar, .dark .fi-header {
+    background: none !important;
+    color: var(--color-snowstorm-600);
 }
 
 /* --- End of ERP Nord Customizations --- */
