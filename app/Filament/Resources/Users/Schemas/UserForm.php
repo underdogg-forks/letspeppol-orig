@@ -6,7 +6,6 @@ use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\TextInput;
 use Filament\Schemas\Components\Fieldset;
 use Filament\Schemas\Components\Grid;
-use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class UserForm
@@ -18,7 +17,7 @@ class UserForm
                 Grid::make(4)
                     ->columnSpanFull()
                     ->schema([
-                        Section::make('Personal Information')
+                        Fieldset::make('Personal Information')
                             ->columnSpan(2)
                             ->columns(1)
                             ->schema([

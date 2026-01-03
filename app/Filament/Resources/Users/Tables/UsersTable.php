@@ -36,7 +36,7 @@ class UsersTable
             ])
             ->recordActions([
                 ActionGroup::make([
-                    EditAction::make(),
+                    EditAction::make()->modalWidth('full'),
                 ]),
             ])
             ->toolbarActions([
