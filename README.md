@@ -44,6 +44,16 @@ Inside you will find all the functions that you would expect:
     - Password Update Page
     - Appearance Preferences
 
+### LetsPeppol API Integration
+
+This starter kit includes a complete API client for [LetsPeppol](https://letspeppol.org) - a free, open-source Peppol e-invoicing platform:
+
+- **OpenAPI 3.0 Specifications** (Postman-ready) for all three API modules
+- **PHP API Client** with complete coverage of KYC, Proxy, and App APIs
+- Full documentation with examples
+
+See [docs/api/LETSPEPPOL-QUICKSTART.md](docs/api/LETSPEPPOL-QUICKSTART.md) for quick start guide.
+
 ---
 
 ## How to use it?

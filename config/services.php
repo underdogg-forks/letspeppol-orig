@@ -33,4 +33,10 @@ return [
             'channel'              => env('SLACK_BOT_USER_DEFAULT_CHANNEL'),
         ],
     ],
+
+    'letspeppol' => [
+        'kyc_url' => env('LETSPEPPOL_KYC_URL', 'https://kyc.letspeppol.org'),
+        'proxy_url' => env('LETSPEPPOL_PROXY_URL', 'https://proxy.letspeppol.org'),
+        'app_url' => env('LETSPEPPOL_APP_URL', 'https://app.letspeppol.org'),
+    ],
 ];
