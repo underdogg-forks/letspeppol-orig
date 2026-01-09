@@ -21,11 +21,17 @@ letspeppol-orig/
 │   ├── LetsPeppol-Proxy-API.postman_collection.json
 │   ├── LetsPeppol-App-API.postman_collection.json
 │   └── README.md
-├── docs/api/                           # API documentation
-│   ├── API-OVERVIEW.md                 # Minimal API overview
-│   ├── LETSPEPPOL-QUICKSTART.md       # Quick start guide
-│   ├── LETSPEPPOL.md                  # Complete API reference
-│   └── IMPLEMENTATION-SUMMARY.md      # Implementation details
+├── docs/
+│   ├── api/                            # API documentation
+│   │   ├── API-OVERVIEW.md             # Minimal API overview
+│   │   ├── LETSPEPPOL-QUICKSTART.md   # Quick start guide
+│   │   ├── LETSPEPPOL.md              # Complete API reference
+│   │   └── IMPLEMENTATION-SUMMARY.md  # Implementation details
+│   └── swagger/                        # Swagger/OpenAPI HTML documentation
+│       ├── letspeppol-kyc-api.html
+│       ├── letspeppol-proxy-api.html
+│       ├── letspeppol-app-api.html
+│       └── README.md
 ├── .junie/                             # Project guidelines
 │   └── guidelines.md                   # This file
 ├── .github/                            # GitHub configuration
@@ -56,6 +62,17 @@ letspeppol-orig/
   - Add links to related documentation
   - Include authentication details
 
+### Swagger Documentation
+- **Format:** HTML (Redoc-generated)
+- **Location:** `/docs/swagger` directory
+- **Generation:** Generated from OpenAPI specs using `redoc-cli`
+- **Naming:** `letspeppol-{module}-api.html`
+- **Features:**
+  - Interactive API documentation
+  - Beautiful, professional UI
+  - Self-contained, works offline
+  - Full-text search capability
+
 ### Postman Collections
 - **Format:** Postman Collection v2.1 JSON
 - **Location:** `/postman-collections` directory
@@ -74,8 +91,14 @@ letspeppol-orig/
    openapi2postmanv2 -s specs/letspeppol-proxy-openapi.yaml -o postman-collections/LetsPeppol-Proxy-API.postman_collection.json -p
    openapi2postmanv2 -s specs/letspeppol-app-openapi.yaml -o postman-collections/LetsPeppol-App-API.postman_collection.json -p
    ```
-4. **Update documentation** in `/docs/api` if endpoints change
-5. **Test with Postman** to ensure collections work correctly
+4. **Regenerate Swagger documentation:**
+   ```bash
+   redoc-cli bundle specs/letspeppol-kyc-openapi.yaml -o docs/swagger/letspeppol-kyc-api.html --title "LetsPeppol KYC API Documentation"
+   redoc-cli bundle specs/letspeppol-proxy-openapi.yaml -o docs/swagger/letspeppol-proxy-api.html --title "LetsPeppol Proxy API Documentation"
+   redoc-cli bundle specs/letspeppol-app-openapi.yaml -o docs/swagger/letspeppol-app-api.html --title "LetsPeppol App API Documentation"
+   ```
+5. **Update documentation** in `/docs/api` if endpoints change
+6. **Test with Postman** to ensure collections work correctly
 
 ### Documentation Updates
 

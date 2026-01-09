@@ -81,13 +81,20 @@ Response: JWT token (use as Bearer token for other endpoints)
 - **[Complete API Reference](docs/api/LETSPEPPOL.md)** - All endpoints and examples
 - **[Implementation Summary](docs/api/IMPLEMENTATION-SUMMARY.md)** - Technical overview
 
-### 📦 OpenAPI Specifications
+### 📖 Swagger/OpenAPI Documentation
+Interactive API documentation with beautiful UI:
+- **[KYC API Swagger Docs](docs/swagger/letspeppol-kyc-api.html)** - Authentication & Registration
+- **[Proxy API Swagger Docs](docs/swagger/letspeppol-proxy-api.html)** - Document Transmission
+- **[App API Swagger Docs](docs/swagger/letspeppol-app-api.html)** - Document Management
+
+### 📦 OpenAPI Specifications (YAML)
+Original OpenAPI 3.0 specifications in the `/specs` directory:
 - **[KYC API Spec](specs/letspeppol-kyc-openapi.yaml)** - 17 endpoints for authentication
 - **[Proxy API Spec](specs/letspeppol-proxy-openapi.yaml)** - 12 endpoints for transmission
 - **[App API Spec](specs/letspeppol-app-openapi.yaml)** - 27 endpoints for management
 
 ### 🚀 Postman Collections
-Import the OpenAPI specs directly to Postman for interactive testing.
+Ready-to-import Postman collections in the `/postman-collections` directory - [View README](postman-collections/README.md)
 
 ---
 

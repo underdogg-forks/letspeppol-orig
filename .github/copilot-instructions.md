@@ -24,6 +24,12 @@ This repository contains the **original API documentation and specifications** f
 - `LETSPEPPOL.md` - Complete API reference
 - `IMPLEMENTATION-SUMMARY.md` - Technical implementation details
 
+### `/docs/swagger` - Swagger Documentation
+- `letspeppol-kyc-api.html` - Interactive KYC API documentation
+- `letspeppol-proxy-api.html` - Interactive Proxy API documentation
+- `letspeppol-app-api.html` - Interactive App API documentation
+- Auto-generated from OpenAPI specs using Redoc
+
 ### `/postman-collections` - Postman Collections
 - Auto-generated from OpenAPI specs
 - Three collections (KYC, Proxy, App)
@@ -63,8 +69,14 @@ This repository contains the **original API documentation and specifications** f
    openapi2postmanv2 -s specs/letspeppol-proxy-openapi.yaml -o postman-collections/LetsPeppol-Proxy-API.postman_collection.json -p
    openapi2postmanv2 -s specs/letspeppol-app-openapi.yaml -o postman-collections/LetsPeppol-App-API.postman_collection.json -p
    ```
-4. Update relevant documentation in `/docs/api`
-5. Test collections in Postman
+4. Regenerate Swagger documentation:
+   ```bash
+   redoc-cli bundle specs/letspeppol-kyc-openapi.yaml -o docs/swagger/letspeppol-kyc-api.html --title "LetsPeppol KYC API Documentation"
+   redoc-cli bundle specs/letspeppol-proxy-openapi.yaml -o docs/swagger/letspeppol-proxy-api.html --title "LetsPeppol Proxy API Documentation"
+   redoc-cli bundle specs/letspeppol-app-openapi.yaml -o docs/swagger/letspeppol-app-api.html --title "LetsPeppol App API Documentation"
+   ```
+5. Update relevant documentation in `/docs/api`
+6. Test collections in Postman
 
 ### Updating Documentation
 
