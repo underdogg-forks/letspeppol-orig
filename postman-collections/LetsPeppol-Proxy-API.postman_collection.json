@@ -1,0 +1,1900 @@
+{
+    "item": [
+        {
+            "name": "sapi",
+            "description": "",
+            "item": [
+                {
+                    "name": "document",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "b5ce5acd-403c-4157-a492-225285ac81f3",
+                            "name": "Get new documents",
+                            "request": {
+                                "name": "Get new documents",
+                                "description": {
+                                    "content": "Retrieves all new received documents for authenticated user",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "sapi",
+                                        "document"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "size",
+                                            "value": "100"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "ade81f32-2c0b-4190-9aab-125a3645db1c",
+                                    "name": "List of new documents",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "size",
+                                                    "value": "100"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"ownerPeppolId\": \"<string>\",\n    \"counterPartyPeppolId\": \"<string>\",\n    \"counterPartyName\": \"<string>\",\n    \"ubl\": \"<string>\",\n    \"direction\": \"INCOMING\",\n    \"status\": \"NEW\",\n    \"documentType\": \"INVOICE\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"issueDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"scheduledAt\": \"<dateTime>\",\n    \"sentAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"ownerPeppolId\": \"<string>\",\n    \"counterPartyPeppolId\": \"<string>\",\n    \"counterPartyName\": \"<string>\",\n    \"ubl\": \"<string>\",\n    \"direction\": \"OUTGOING\",\n    \"status\": \"NEW\",\n    \"documentType\": \"INVOICE\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"issueDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"scheduledAt\": \"<dateTime>\",\n    \"sentAt\": \"<dateTime>\"\n  }\n]",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "id": "59883936-e949-4d41-8416-9a828c005119",
+                            "name": "Create document to send",
+                            "request": {
+                                "name": "Create document to send",
+                                "description": {
+                                    "content": "Creates a new UBL document for sending",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "sapi",
+                                        "document"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [
+                                        {
+                                            "disabled": false,
+                                            "description": {
+                                                "content": "",
+                                                "type": "text/plain"
+                                            },
+                                            "key": "noArchive",
+                                            "value": "false"
+                                        }
+                                    ],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "15ef8999-b484-43db-b5d6-ba0f9f50b0db",
+                                    "name": "Document created",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "noArchive",
+                                                    "value": "false"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "status": "Created",
+                                    "code": 201,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "status",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "e457ab60-2cde-4ee8-8fb7-cec2d92330f4",
+                                    "name": "Get status updates",
+                                    "request": {
+                                        "name": "Get status updates",
+                                        "description": {
+                                            "content": "Retrieves status updates for specified document IDs",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document",
+                                                "status"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "a44775be-feaa-47cd-a694-1db5067039b8",
+                                            "name": "Document status updates",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        "status"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "POST",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"ownerPeppolId\": \"<string>\",\n    \"counterPartyPeppolId\": \"<string>\",\n    \"counterPartyName\": \"<string>\",\n    \"ubl\": \"<string>\",\n    \"direction\": \"INCOMING\",\n    \"status\": \"NEW\",\n    \"documentType\": \"INVOICE\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"issueDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"scheduledAt\": \"<dateTime>\",\n    \"sentAt\": \"<dateTime>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"ownerPeppolId\": \"<string>\",\n    \"counterPartyPeppolId\": \"<string>\",\n    \"counterPartyName\": \"<string>\",\n    \"ubl\": \"<string>\",\n    \"direction\": \"OUTGOING\",\n    \"status\": \"NEW\",\n    \"documentType\": \"INVOICE\",\n    \"amount\": \"<double>\",\n    \"currency\": \"<string>\",\n    \"invoiceId\": \"<string>\",\n    \"issueDate\": \"<dateTime>\",\n    \"dueDate\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"scheduledAt\": \"<dateTime>\",\n    \"sentAt\": \"<dateTime>\"\n  }\n]",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "name": "{id}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "0a2c932a-3708-437c-af1e-bd9c20de4134",
+                                    "name": "Get document by ID",
+                                    "request": {
+                                        "name": "Get document by ID",
+                                        "description": {
+                                            "content": "Retrieves a specific document by UUID",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<uuid>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "19c8c1a8-a6d3-43e1-9aa0-8e69179e120a",
+                                            "name": "Document details",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "type": "any",
+                                                            "value": "<uuid>",
+                                                            "key": "id"
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        },
+                                        {
+                                            "id": "adcea439-eba4-4074-8373-d5a7e858ebc4",
+                                            "name": "Document not found",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "type": "any",
+                                                            "value": "<uuid>",
+                                                            "key": "id"
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "Not Found",
+                                            "code": 404,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                },
+                                {
+                                    "id": "27726ccf-1a32-46b4-8cb5-d5c261a3688d",
+                                    "name": "Update document",
+                                    "request": {
+                                        "name": "Update document",
+                                        "description": {
+                                            "content": "Updates an existing document",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "noArchive",
+                                                    "value": "false"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<uuid>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "PUT",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "5c2ab97a-fb70-4608-8561-cf4102c0213a",
+                                            "name": "Document updated",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "key": "noArchive",
+                                                            "value": "false"
+                                                        }
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "type": "any",
+                                                            "value": "<uuid>",
+                                                            "key": "id"
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "PUT",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                },
+                                {
+                                    "id": "886504f7-ceae-4085-b0a6-bdd3c18ca5fe",
+                                    "name": "Cancel document",
+                                    "request": {
+                                        "name": "Cancel document",
+                                        "description": {
+                                            "content": "Cancels a pending document",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document",
+                                                ":id"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "noArchive",
+                                                    "value": "false"
+                                                }
+                                            ],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<uuid>",
+                                                    "key": "id",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "method": "DELETE",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "4cd345be-cedb-4147-9cf1-3266ca20392a",
+                                            "name": "Document cancelled",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        ":id"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "key": "noArchive",
+                                                            "value": "false"
+                                                        }
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "type": "any",
+                                                            "value": "<uuid>",
+                                                            "key": "id"
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "DELETE",
+                                                "body": {}
+                                            },
+                                            "status": "No Content",
+                                            "code": 204,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                },
+                                {
+                                    "name": "send",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "id": "2fe8122a-5157-47cb-9998-b5500acf363a",
+                                            "name": "Reschedule document sending",
+                                            "request": {
+                                                "name": "Reschedule document sending",
+                                                "description": {
+                                                    "content": "Reschedules a document for sending",
+                                                    "type": "text/plain"
+                                                },
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        ":id",
+                                                        "send"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "type": "any",
+                                                            "value": "<uuid>",
+                                                            "key": "id",
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    }
+                                                ],
+                                                "method": "PUT",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                },
+                                                "auth": {
+                                                    "type": "bearer",
+                                                    "bearer": [
+                                                        {
+                                                            "key": "token",
+                                                            "value": "{{bearerToken}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "21737cba-c63d-474e-9541-dbf9ab076c64",
+                                                    "name": "Document rescheduled",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "sapi",
+                                                                "document",
+                                                                ":id",
+                                                                "send"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [],
+                                                            "variable": [
+                                                                {
+                                                                    "disabled": false,
+                                                                    "description": {
+                                                                        "content": "(Required) ",
+                                                                        "type": "text/plain"
+                                                                    },
+                                                                    "type": "any",
+                                                                    "value": "<uuid>",
+                                                                    "key": "id"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "key": "Content-Type",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "key": "Accept",
+                                                                "value": "application/json"
+                                                            },
+                                                            {
+                                                                "description": {
+                                                                    "content": "Added as a part of security scheme: bearer",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "Authorization",
+                                                                "value": "Bearer <token>"
+                                                            }
+                                                        ],
+                                                        "method": "PUT",
+                                                        "body": {
+                                                            "mode": "raw",
+                                                            "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                                            "options": {
+                                                                "raw": {
+                                                                    "headerFamily": "json",
+                                                                    "language": "json"
+                                                                }
+                                                            }
+                                                        }
+                                                    },
+                                                    "status": "Accepted",
+                                                    "code": 202,
+                                                    "header": [
+                                                        {
+                                                            "key": "Content-Type",
+                                                            "value": "application/json"
+                                                        }
+                                                    ],
+                                                    "body": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "json"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        }
+                                    ]
+                                },
+                                {
+                                    "name": "downloaded",
+                                    "description": "",
+                                    "item": [
+                                        {
+                                            "id": "e743e973-55e3-4506-a2a3-9c07f8625ba8",
+                                            "name": "Mark document as downloaded",
+                                            "request": {
+                                                "name": "Mark document as downloaded",
+                                                "description": {
+                                                    "content": "Marks a received document as downloaded",
+                                                    "type": "text/plain"
+                                                },
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        ":id",
+                                                        "downloaded"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "key": "noArchive",
+                                                            "value": "false"
+                                                        }
+                                                    ],
+                                                    "variable": [
+                                                        {
+                                                            "type": "any",
+                                                            "value": "<uuid>",
+                                                            "key": "id",
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "method": "PUT",
+                                                "body": {},
+                                                "auth": {
+                                                    "type": "bearer",
+                                                    "bearer": [
+                                                        {
+                                                            "key": "token",
+                                                            "value": "{{bearerToken}}"
+                                                        }
+                                                    ]
+                                                }
+                                            },
+                                            "response": [
+                                                {
+                                                    "id": "4b64d167-2f76-469a-9adc-2b1a6094d00b",
+                                                    "name": "Document marked as downloaded",
+                                                    "originalRequest": {
+                                                        "url": {
+                                                            "path": [
+                                                                "sapi",
+                                                                "document",
+                                                                ":id",
+                                                                "downloaded"
+                                                            ],
+                                                            "host": [
+                                                                "{{baseUrl}}"
+                                                            ],
+                                                            "query": [
+                                                                {
+                                                                    "disabled": false,
+                                                                    "description": {
+                                                                        "content": "",
+                                                                        "type": "text/plain"
+                                                                    },
+                                                                    "key": "noArchive",
+                                                                    "value": "false"
+                                                                }
+                                                            ],
+                                                            "variable": [
+                                                                {
+                                                                    "disabled": false,
+                                                                    "description": {
+                                                                        "content": "(Required) ",
+                                                                        "type": "text/plain"
+                                                                    },
+                                                                    "type": "any",
+                                                                    "value": "<uuid>",
+                                                                    "key": "id"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "header": [
+                                                            {
+                                                                "description": {
+                                                                    "content": "Added as a part of security scheme: bearer",
+                                                                    "type": "text/plain"
+                                                                },
+                                                                "key": "Authorization",
+                                                                "value": "Bearer <token>"
+                                                            }
+                                                        ],
+                                                        "method": "PUT",
+                                                        "body": {}
+                                                    },
+                                                    "status": "No Content",
+                                                    "code": 204,
+                                                    "header": [],
+                                                    "cookie": [],
+                                                    "_postman_previewlanguage": "text"
+                                                }
+                                            ],
+                                            "event": [],
+                                            "protocolProfileBehavior": {
+                                                "disableBodyPruning": true
+                                            }
+                                        }
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "downloaded",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "304382bb-1f94-4225-aeb0-2ca8753f18f6",
+                                    "name": "Mark multiple documents as downloaded",
+                                    "request": {
+                                        "name": "Mark multiple documents as downloaded",
+                                        "description": {
+                                            "content": "Marks multiple received documents as downloaded",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "document",
+                                                "downloaded"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [
+                                                {
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "",
+                                                        "type": "text/plain"
+                                                    },
+                                                    "key": "noArchive",
+                                                    "value": "false"
+                                                }
+                                            ],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "PUT",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        },
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "3a39024e-80c7-4b05-8362-d7e49d15ef3e",
+                                            "name": "Documents marked as downloaded",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "document",
+                                                        "downloaded"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "key": "noArchive",
+                                                            "value": "false"
+                                                        }
+                                                    ],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Content-Type",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "PUT",
+                                                "body": {
+                                                    "mode": "raw",
+                                                    "raw": "[\n  \"<uuid>\",\n  \"<uuid>\"\n]",
+                                                    "options": {
+                                                        "raw": {
+                                                            "headerFamily": "json",
+                                                            "language": "json"
+                                                        }
+                                                    }
+                                                }
+                                            },
+                                            "status": "No Content",
+                                            "code": 204,
+                                            "header": [],
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "registry",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "7e1dda8a-2880-4fc4-88c8-e583fdf73ecf",
+                            "name": "Get registry information",
+                            "request": {
+                                "name": "Get registry information",
+                                "description": {
+                                    "content": "Retrieves registry information for authenticated user's Peppol ID",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "sapi",
+                                        "registry"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "e52f52d8-2ce9-4b30-bedd-0fa19765ee72",
+                                    "name": "Registry information",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "registry"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"peppolId\": \"<string>\",\n  \"accessPoint\": \"SCRADA\",\n  \"registered\": \"<boolean>\",\n  \"registeredAt\": \"<dateTime>\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "id": "2d69ce21-615f-4d1c-b115-81e2dfd27416",
+                            "name": "Register on Access Point",
+                            "request": {
+                                "name": "Register on Access Point",
+                                "description": {
+                                    "content": "Registers Peppol ID on the Access Point",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "sapi",
+                                        "registry"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"registrationData\": {}\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "af4ea023-290a-4abb-9df8-4452d617c0b2",
+                                    "name": "Registration successful",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "registry"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            },
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"registrationData\": {}\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
+                                    "body": "{\n  \"peppolId\": \"<string>\",\n  \"accessPoint\": \"SCRADA\",\n  \"registered\": \"<boolean>\",\n  \"registeredAt\": \"<dateTime>\"\n}",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "json"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "id": "ac71d862-0830-46cb-8dcb-08bcd7341675",
+                            "name": "Remove from registry",
+                            "request": {
+                                "name": "Remove from registry",
+                                "description": {
+                                    "content": "Removes Peppol ID from registry",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "sapi",
+                                        "registry"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "method": "DELETE",
+                                "body": {},
+                                "auth": {
+                                    "type": "bearer",
+                                    "bearer": [
+                                        {
+                                            "key": "token",
+                                            "value": "{{bearerToken}}"
+                                        }
+                                    ]
+                                }
+                            },
+                            "response": [
+                                {
+                                    "id": "ba70056f-e67e-4c4a-8427-182fdf5dd515",
+                                    "name": "Registry entry removed",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "registry"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "description": {
+                                                    "content": "Added as a part of security scheme: bearer",
+                                                    "type": "text/plain"
+                                                },
+                                                "key": "Authorization",
+                                                "value": "Bearer <token>"
+                                            }
+                                        ],
+                                        "method": "DELETE",
+                                        "body": {}
+                                    },
+                                    "status": "No Content",
+                                    "code": 204,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "unregister",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "6fce133a-8802-436c-a6c4-bcb6c797c8ac",
+                                    "name": "Unregister from Access Point",
+                                    "request": {
+                                        "name": "Unregister from Access Point",
+                                        "description": {
+                                            "content": "Unregisters Peppol ID from the Access Point",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "sapi",
+                                                "registry",
+                                                "unregister"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "PUT",
+                                        "body": {},
+                                        "auth": {
+                                            "type": "bearer",
+                                            "bearer": [
+                                                {
+                                                    "key": "token",
+                                                    "value": "{{bearerToken}}"
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "15555e8f-03c1-4719-9497-85ac9907888d",
+                                            "name": "Unregistration successful",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "sapi",
+                                                        "registry",
+                                                        "unregister"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": []
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "application/json"
+                                                    },
+                                                    {
+                                                        "description": {
+                                                            "content": "Added as a part of security scheme: bearer",
+                                                            "type": "text/plain"
+                                                        },
+                                                        "key": "Authorization",
+                                                        "value": "Bearer <token>"
+                                                    }
+                                                ],
+                                                "method": "PUT",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "application/json"
+                                                }
+                                            ],
+                                            "body": "{\n  \"peppolId\": \"<string>\",\n  \"accessPoint\": \"SCRADA\",\n  \"registered\": \"<boolean>\",\n  \"registeredAt\": \"<dateTime>\"\n}",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "json"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "api",
+            "description": "",
+            "item": [
+                {
+                    "name": "monitor",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "9b5e01b4-6761-43e4-b465-892a9ceb1ed8",
+                            "name": "Health check",
+                            "request": {
+                                "name": "Health check",
+                                "description": {
+                                    "content": "Simple health check endpoint",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "monitor"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Accept",
+                                        "value": "text/plain"
+                                    }
+                                ],
+                                "method": "GET",
+                                "body": {},
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "e036a4cb-e028-4299-a3ce-3e40f2157c67",
+                                    "name": "Service is healthy",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "monitor"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "text/plain"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {}
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [
+                                        {
+                                            "key": "Content-Type",
+                                            "value": "text/plain"
+                                        }
+                                    ],
+                                    "body": "<string>",
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        },
+                        {
+                            "name": "{amount}",
+                            "description": "",
+                            "item": [
+                                {
+                                    "id": "e5a504cf-6d49-431c-a447-235f3f805a72",
+                                    "name": "Top up balance",
+                                    "request": {
+                                        "name": "Top up balance",
+                                        "description": {
+                                            "content": "Increments balance by specified amount (monitoring/testing)",
+                                            "type": "text/plain"
+                                        },
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "monitor",
+                                                ":amount"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": [
+                                                {
+                                                    "type": "any",
+                                                    "value": "<long>",
+                                                    "key": "amount",
+                                                    "disabled": false,
+                                                    "description": {
+                                                        "content": "(Required) ",
+                                                        "type": "text/plain"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Accept",
+                                                "value": "text/plain"
+                                            }
+                                        ],
+                                        "method": "GET",
+                                        "body": {},
+                                        "auth": null
+                                    },
+                                    "response": [
+                                        {
+                                            "id": "ebb3349c-5c48-4865-b8aa-d5ad46d72dcb",
+                                            "name": "Balance updated",
+                                            "originalRequest": {
+                                                "url": {
+                                                    "path": [
+                                                        "api",
+                                                        "monitor",
+                                                        ":amount"
+                                                    ],
+                                                    "host": [
+                                                        "{{baseUrl}}"
+                                                    ],
+                                                    "query": [],
+                                                    "variable": [
+                                                        {
+                                                            "disabled": false,
+                                                            "description": {
+                                                                "content": "(Required) ",
+                                                                "type": "text/plain"
+                                                            },
+                                                            "type": "any",
+                                                            "value": "<long>",
+                                                            "key": "amount"
+                                                        }
+                                                    ]
+                                                },
+                                                "header": [
+                                                    {
+                                                        "key": "Accept",
+                                                        "value": "text/plain"
+                                                    }
+                                                ],
+                                                "method": "GET",
+                                                "body": {}
+                                            },
+                                            "status": "OK",
+                                            "code": 200,
+                                            "header": [
+                                                {
+                                                    "key": "Content-Type",
+                                                    "value": "text/plain"
+                                                }
+                                            ],
+                                            "body": "<string>",
+                                            "cookie": [],
+                                            "_postman_previewlanguage": "text"
+                                        }
+                                    ],
+                                    "event": [],
+                                    "protocolProfileBehavior": {
+                                        "disableBodyPruning": true
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "e-invoice",
+                    "description": "",
+                    "item": [
+                        {
+                            "id": "d8fe6006-86c5-4c5e-9df6-bcbb517bd09a",
+                            "name": "Receive e-invoice",
+                            "request": {
+                                "name": "Receive e-invoice",
+                                "description": {
+                                    "content": "Endpoint for receiving e-invoices from external systems",
+                                    "type": "text/plain"
+                                },
+                                "url": {
+                                    "path": [
+                                        "api",
+                                        "e-invoice"
+                                    ],
+                                    "host": [
+                                        "{{baseUrl}}"
+                                    ],
+                                    "query": [],
+                                    "variable": []
+                                },
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application/json"
+                                    }
+                                ],
+                                "method": "POST",
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                    "options": {
+                                        "raw": {
+                                            "headerFamily": "json",
+                                            "language": "json"
+                                        }
+                                    }
+                                },
+                                "auth": null
+                            },
+                            "response": [
+                                {
+                                    "id": "5a442f94-63b3-4c1c-ba28-6eb815c77612",
+                                    "name": "E-invoice received",
+                                    "originalRequest": {
+                                        "url": {
+                                            "path": [
+                                                "api",
+                                                "e-invoice"
+                                            ],
+                                            "host": [
+                                                "{{baseUrl}}"
+                                            ],
+                                            "query": [],
+                                            "variable": []
+                                        },
+                                        "header": [
+                                            {
+                                                "key": "Content-Type",
+                                                "value": "application/json"
+                                            }
+                                        ],
+                                        "method": "POST",
+                                        "body": {
+                                            "mode": "raw",
+                                            "raw": "{\n  \"id\": \"<uuid>\",\n  \"ownerPeppolId\": \"<string>\",\n  \"counterPartyPeppolId\": \"<string>\",\n  \"counterPartyName\": \"<string>\",\n  \"ubl\": \"<string>\",\n  \"direction\": \"OUTGOING\",\n  \"status\": \"DOWNLOADED\",\n  \"documentType\": \"INVOICE\",\n  \"amount\": \"<double>\",\n  \"currency\": \"<string>\",\n  \"invoiceId\": \"<string>\",\n  \"issueDate\": \"<dateTime>\",\n  \"dueDate\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"scheduledAt\": \"<dateTime>\",\n  \"sentAt\": \"<dateTime>\"\n}",
+                                            "options": {
+                                                "raw": {
+                                                    "headerFamily": "json",
+                                                    "language": "json"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "status": "OK",
+                                    "code": 200,
+                                    "header": [],
+                                    "cookie": [],
+                                    "_postman_previewlanguage": "text"
+                                }
+                            ],
+                            "event": [],
+                            "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "event": [],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "https://proxy.letspeppol.org"
+        }
+    ],
+    "info": {
+        "_postman_id": "11394781-1e30-4794-943f-d750ef3f6276",
+        "name": "LetsPeppol Proxy API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": {
+            "content": "Proxy API for LetsPeppol e-invoicing document management.\nThis service handles UBL document sending/receiving, registry management, and monitoring.\n\n\nContact Support:\n Name: LetsPeppol",
+            "type": "text/plain"
+        }
+    }
+}
